@@ -1,0 +1,35 @@
+In Floating point representation we have three components
+
+1.The Sign Bit
+2.Exponent
+3.Fractional Part
+
+Precession is one the prime attribute of any Floating point Representation, 
+
+1. Does any of the above three components play a role in the defining the Precession of the number ? If so which are the component or Components  which play the  role in defining precession  and how ? Explain this with example in your own words
+Ans:	Yes, Exponent and Fractional part are the components which defines tha precession of the number, as Precession is the number of digits in a number. The fractional part defines the number excluding first occurance of 1 (in binary), and exponent part defines after how many bits decimal point will occur.
+	Ex. 1- (15)d has a precession of two digits. In binary it is (1111)b, which will be concluded as, Exponent part will have 3, which shows that number's precession is 3+1 = 4. Here given number was not fractional.
+	Ex. 2- (10.1101)b : exponent part will have 1 and fractional part will have 5 digits, which tells the precission of 5+1 = 6.
+
+
+2.What is Normal and Subnormal  Values as per IEEE 754  standards  explain this  with the  help of number line
+
+Ans:	When the exponent field has a zero bit string but the fraction field has a nonzero bitstring, then number represented is said to be subnormal. Suppose, -127 is the smallest exponent that can be represented. So, smallest number that can be represented would be 1.0 x 2^(-127). But, if we release the constrain of leading one, then smallest number that can be represented is 0.1 x 2^(-127). In other words, Any non-zero number with magnitude smaller than the smallest normal number is 'subnormal'.
+	A normal number is a finite nonzero floating-point number with magnitude greater than or equal to a minimum value 1.0 x 2^(-127) as in above example. Unlikely subnormal numbers, normal numbers can use the full precession available in a format.
+
+	- Maximum normal number : 7f7fffff(bit pattern) and 3.40282347e+38(in decimal).
+	- Minimum positive normal number : 00800000(bit pattern) and 1.17549435e-38(in decimal).
+	- Maximum subnormal number  : 007fffff(bit pattern) and 1.17549421e-38(in decimal).
+	- Minimum positive subnormal number  : 00000001(bit pattern) and 1.40129846e-45(in decimal).
+
+
+3.IEEE 754vv defines standards for rounding floating points numbers to a represent able value. There are five methods defined by IEEE for this – Take time and  understand what these five methods and explain it in your words using diagrams, illustrations of your own.
+
+There are mainly two category of rounding rules :
+	(1) Roundings to nearest
+		(1.1) Round to nearest, ties to even - As name suggests, Floating point number will be rouded off towards the nearest even number. Ex. 11.5 -> 12 and 12.5 -> 12
+		(1.2) Round to nearest, ties away from zero - Floating point number will be rouded off towards the nearest greater (if positive) or smaller (if negative) whole number. Ex. 11.5 -> 12 and -11.5 -> -12
+	(2) Directed roundings
+		(2.1)	Round toward 0 - Floating point number will be rouded off towards 0, exact opposite of (1.2). Ex. 11.5 -> 11 and -11.5 -> -11
+		(2.2) Round toward positive infinity - Floating point number will be rouded off towards the nearest greater number. Ex. 11.5 -> 12 and -11.5 -> -11
+		(2.3) Round toward negative infinity - Floating point number will be rouded off towards the nearest smaller number. Ex. 11.5 -> 11 and -11.5 -> -12
